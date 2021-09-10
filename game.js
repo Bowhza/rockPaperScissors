@@ -64,7 +64,7 @@ function game(){
     playRound(playerSelection, computerSelection);
 }
 
-while (gameOn){
+while (gameOn){ 
     if (playerScore.score === scoreLimit){
         console.log("You Win!");
         break
