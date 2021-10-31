@@ -3,7 +3,7 @@ body {
     display: flex;
     flex-direction: column;
     font-family: Arial, Helvetica, sans-serif;
-    background-color: rgb(224, 250, 249);
+    align-items: center;
 }
 
 h1, h2{
@@ -14,28 +14,26 @@ h1, h2{
     text-align: center;
 }
 
-#rules, #scorelimit {
-    font-size: 20px;
-    margin-top: 0;
-}
-
-#head {
-    padding: 15px 0;
-    margin: 0 10%;
-    margin-bottom: 10px;
-    flex-direction: column;
-}
-
 .button-container,.score-box, .message-box, .header{
     display: flex;
-    flex: 1 1 auto;
     justify-content: space-evenly;
     border: 5px solid black;
     border-radius: 15px;
     padding: 25px 0px;
-    margin: 10px 10%;
+    margin: 10px 0;
     flex-wrap: wrap;
     box-shadow: 3px 3px 10px 1px black;
+    max-width: 800px;
+    width: 85%;
+}
+
+#rules, #scorelimit {
+    font-size: 20px;
+}
+
+#head {
+    padding: 15px 0;
+    flex-direction: column;
 }
 
 .button-box {
@@ -52,7 +50,7 @@ h1, h2{
     align-items: center;
 }
 
-.button:hover {
+.button:hover, #play:hover {
     box-shadow: 3px 3px 10px 2px black;
     scale: 1.05;
 }
@@ -63,7 +61,7 @@ h1, h2{
     font-weight: bold;
 }
 
-.score-container {
+.score-container, .message-box {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -79,7 +77,16 @@ h1, h2{
     font-size: 75px;
 }
 
-#message {
+.message {
     font-size: 30px;
     font-weight: bold;
+    text-align: center;
+}
+
+#play {
+    border: 3px solid black;
+    border-radius: 10px;
+    padding: 5px 10px;
+    background-color: lightgreen;
+    margin-top: 15px;
 }

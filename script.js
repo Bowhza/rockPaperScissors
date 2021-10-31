@@ -5,64 +5,86 @@ let gameOn = true;
 let playerScore = 0;
 let computerScore = 0;
 
-/*selects the player score nodes and the message node*/
+/*selects the score, message and options box nodes*/
 let plrScore = document.getElementById("player-score");
 let cpuScore = document.getElementById("cpu-score");
-let message = document.getElementById("message");
+let messageBox = document.querySelector(".message-box")
+let message = document.querySelector(".message");
+let optionsBox = document.querySelector(".button-container");
 
+/*Creates the play again button and assigns attributes*/
+let playButton = document.createElement("button");
+playButton.classList.add("message");
+playButton.setAttribute("id", "play");
+playButton.innerText = "Play Again?";
+
+/*Randomly select and option from the array which is then assigned to the computer player*/
 function computerPlay(cpuChoice){
     cpuChoice = choices[Math.floor(Math.random() * choices.length)];
     return cpuChoice;
 }
 
+/*This function checks the score to see if it excedes the limit*/
 function checkScore(){
     if (playerScore === scoreLimit){
         console.log("You Win!");
         message.innerText = "Game Over! You Win!";
+        /*once the score limit is reached it removes the options container*/
+        optionsBox.remove();
+        /*Changes the color of the score after the game ends*/
+        plrScore.style.color = "green";
+        cpuScore.style.color = "red";
+        /*This adds a "play again" button which refreshes the page*/
+        messageBox.appendChild(playButton);
+        playButton.addEventListener("click", function(){
+            window.location.reload();
+        });
     }
     else if (computerScore === scoreLimit){
         console.log("Computer Wins!");
         message.innerText = "Game Over! You Lose!";
+        /*once the score limit is reached it removes the options container*/
+        optionsBox.remove();
+        /*Changes the color of the score after the game ends*/
+        plrScore.style.color = "green";
+        cpuScore.style.color = "red";
+        /*This adds a "play again" button which refreshes the page*/
+        messageBox.appendChild(playButton);
+        playButton.addEventListener("click", function(){
+            window.location.reload();
+        });
     }
     else {
         null
     }
 }
 
+/*The play round function takes in 2 paramaters and then compares them to see who won the round*/
 function playRound(playerSelection, computerSelection){
 
+    /*logs both the player and computer choice*/
     console.log(`You Chose: ${playerSelection.toUpperCase()} | The Computer Chose: ${computerSelection.toUpperCase()}`);
     
     if (playerSelection === "rock" && computerSelection === "scissors"){
-        console.log("You Win! Rock beats Scissors!");
         playerScore += 1;
-        console.log(`Your Score: ${playerScore} | Computer Score: ${computerScore}`);
         plrScore.innerText = playerScore;
         message.innerText = "You Win! Rock beats Scissors!";
     }
     else if (playerSelection === "paper" && computerSelection === "rock"){
-        console.log("You Win! Paper beats Rock!");
         playerScore += 1;
-        console.log(`Your Score: ${playerScore} | Computer Score: ${computerScore}`);
         plrScore.innerText = playerScore;
         message.innerText = "You Win! Paper beats Rock!";
     }
     else if (playerSelection === "scissors" && computerSelection === "paper"){
-        console.log("You Win! Scissors beats Paper!");
         playerScore += 1;
-        console.log(`Your Score: ${playerScore} | Computer Score: ${computerScore}`);
         plrScore.innerText = playerScore;
         message.innerText = "You Win! Scissors beats Paper!";
     }
     else if (playerSelection === computerSelection){
-        console.log("You Tied!");
-        console.log(`Your Score: ${playerScore} | Computer Score: ${computerScore}`);
         message.innerText = "You Tied!";
     }
     else {
-        console.log(`You Lose! ${computerSelection.charAt(0).toUpperCase() + computerSelection.slice(1)} beats ${playerSelection.charAt(0).toUpperCase() + playerSelection.slice(1)}.`);
         computerScore += 1;
-        console.log(`Your Score: ${playerScore} | Computer Score: ${computerScore}`);
         cpuScore.innerText = computerScore;
         let gameMessage = `You Lose! ${computerSelection.charAt(0).toUpperCase() + computerSelection.slice(1)} beats ${playerSelection.charAt(0).toUpperCase() + playerSelection.slice(1)}.`;
         message.innerText = gameMessage;
