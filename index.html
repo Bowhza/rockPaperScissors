@@ -1,12 +1,48 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+        <link rel="stylesheet" href="style.css">
+    </head>
     <body>
-        <script src="game.js"></script>
+
+        <h1>Rock, Paper, Scissors Game!</h1>
+        
+        <div class="button-container">
+            <div class="button-box">
+                <div class="button" id="rock">
+                    <img src="/images/rock.png">
+                </div>
+                <div class="text">Rock</div>
+            </div>
+            <div class="button-box">
+                <div class="button" id="paper">
+                    <img src="/images/paper.png">
+                </div>
+                <div class="text">Paper</div>
+            </div>
+            <div class="button-box">
+                <div class="button" id="scissors">
+                    <img src="/images/scissors.png">
+                </div>
+                <div class="text">Scissors</div>
+            </div>
+        </div>
+        
+        <div class="score-box">
+            <div class="score-container">
+                <div>Player Score</div>
+                <div id="player-score">0</div>
+            </div>
+            <div class="score-container">
+                <div>Computer Score</div>
+                <div id="cpu-score">0</div>
+            </div>
+        </div>
+
+        <!--<script src="game.js"></script>-->
     </body>
 </html>
