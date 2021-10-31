@@ -1,9 +1,7 @@
-Rock Paper Scissors Project
+Rock Paper Scissors Project.
 
-This is a console based Rock, Paper, Scissors game made in JavaScript. 
-Goto the live preview to try it out and press "F12" to open the console.
-The score limit is set to 5 and the game keeps track, also the players input is case insensitive.
-Have Fun!
+The project has been updated and now has a GUI! Previously the game was played in the console.
+The code has been updated and cleaned up, there is also a live preview available.
 
 Live Previev: https://bowhza.github.io/rockPaperScissors/
 
